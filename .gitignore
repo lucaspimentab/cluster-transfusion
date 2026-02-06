@@ -1,0 +1,7 @@
+outputs/
+dataset/
+__pycache__/
+*.pyc
+.venv/
+*.log
+*.parquet

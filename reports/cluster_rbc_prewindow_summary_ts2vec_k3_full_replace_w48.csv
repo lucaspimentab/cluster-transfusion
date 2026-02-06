@@ -1,0 +1,4 @@
+cluster,n,rbc_event_sum_mean,rbc_event_sum_median,rbc_event_count_mean,rbc_event_max_mean,rbc_event_max_median,rbc_event_median_pos_mean,rbc_totalamount_max_mean,rbc_totalamount_max_median,rbc_totalamount_last_mean,rbc_totalamount_last_median
+0,5789,596.0445983762309,350.0,1.0,596.0445983762309,350.0,596.0445983762309,596.0445983762309,350.0,596.0445983762309,350.0
+1,10,362.8,350.0,1.0,362.8,350.0,362.8,362.8,350.0,362.8,350.0
+2,4840,386.1568243801653,350.0,1.0,386.1568243801653,350.0,386.1568243801653,386.1568243801653,350.0,386.1568243801653,350.0
