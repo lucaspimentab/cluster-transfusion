@@ -1,0 +1,66 @@
+{
+    "query_name": "SELECT count(*) AS n_rows, sum(transfused) AS n_transfused FROM read_parquet('C:/Users/lucas/OneDrive/Documentos/Programas/cluster-transfusion/cluster-transfusion1/outputs/runs/run_cal03_replace_full_w48/shared/outcomes_cohort.parquet')",
+    "blocked_thread_time": 0.0,
+    "cpu_time": 0.0084254,
+    "extra_info": {},
+    "cumulative_cardinality": 80335,
+    "cumulative_rows_scanned": 441837,
+    "result_set_size": 24,
+    "latency": 0.0931671,
+    "rows_returned": 1,
+    "children": [
+        {
+            "cpu_time": 0.0084254,
+            "extra_info": {
+                "Aggregates": [
+                    "count_star()",
+                    "sum(#0)"
+                ]
+            },
+            "cumulative_cardinality": 80335,
+            "operator_type": "UNGROUPED_AGGREGATE",
+            "operator_name": "UNGROUPED_AGGREGATE",
+            "operator_cardinality": 1,
+            "cumulative_rows_scanned": 441837,
+            "operator_rows_scanned": 0,
+            "operator_timing": 0.0021482999999999997,
+            "result_set_size": 24,
+            "children": [
+                {
+                    "cpu_time": 0.0062771,
+                    "extra_info": {
+                        "Projections": "transfused",
+                        "Estimated Cardinality": "40167"
+                    },
+                    "cumulative_cardinality": 80334,
+                    "operator_type": "PROJECTION",
+                    "operator_name": "PROJECTION",
+                    "operator_cardinality": 40167,
+                    "cumulative_rows_scanned": 441837,
+                    "operator_rows_scanned": 0,
+                    "operator_timing": 0.0000121,
+                    "result_set_size": 160668,
+                    "children": [
+                        {
+                            "cpu_time": 0.006265,
+                            "extra_info": {
+                                "Function": "READ_PARQUET",
+                                "Projections": "transfused",
+                                "Estimated Cardinality": "40167"
+                            },
+                            "cumulative_cardinality": 40167,
+                            "operator_type": "TABLE_SCAN",
+                            "operator_name": "READ_PARQUET ",
+                            "operator_cardinality": 40167,
+                            "cumulative_rows_scanned": 441837,
+                            "operator_rows_scanned": 441837,
+                            "operator_timing": 0.006265,
+                            "result_set_size": 160668,
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

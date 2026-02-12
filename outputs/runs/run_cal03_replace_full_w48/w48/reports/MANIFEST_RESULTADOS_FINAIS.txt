@@ -1,0 +1,16 @@
+RESULTADOS FINAIS MANTIDOS (MiniRocket, k=3)
+
+cluster_assignments_mortality_minirocket.csv
+cluster_benefit_minirocket.csv
+cluster_benefit_minirocket_k3.csv
+cluster_metrics_minirocket.csv
+cluster_phenotype_minirocket.csv
+relatorio_subgrupos_minirocket_k3_comorb_lab_vital_formalizado.txt
+subgroup_clinical_scan_mortality_minirocket_k3_allvars_confirmatory.csv
+subgroup_secondary_link_formalizado_comorb_lab_vital_minirocket_k3.csv
+subgrupos_comorb_lab_vital_agrupados_exames_hbmerge_stats_subgrupo_sec_volume_minirocket_k3.csv
+
+OBS:
+- ts2vec removido
+- run_cal03_noreplace_w48 removido
+- logs/profiling removidos

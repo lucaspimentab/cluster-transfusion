@@ -1,0 +1,164 @@
+{
+    "query_name": "\n        WITH sample AS (\n            SELECT (tg.\"tbin\")*1.0 AS t\n            FROM read_parquet('C:/Users/lucas/OneDrive/Documentos/Programas/cluster-transfusion/cluster-transfusion1/dataset/timegrid_features/*/*.parquet', union_by_name=true) tg\n            LIMIT 5000\n        ), diffs AS (\n            SELECT t - lag(t) OVER (ORDER BY t) AS dt\n            FROM sample\n        )\n        SELECT median(dt) FROM diffs WHERE dt IS NOT NULL AND dt > 0\n        ",
+    "blocked_thread_time": 0.0,
+    "cpu_time": 0.0158818,
+    "extra_info": {},
+    "cumulative_cardinality": 36317,
+    "cumulative_rows_scanned": 53774224,
+    "result_set_size": 16,
+    "latency": 0.7264473,
+    "rows_returned": 1,
+    "children": [
+        {
+            "cpu_time": 0.0158818,
+            "extra_info": {
+                "Aggregates": "median(#0)"
+            },
+            "cumulative_cardinality": 36317,
+            "operator_type": "UNGROUPED_AGGREGATE",
+            "operator_name": "UNGROUPED_AGGREGATE",
+            "operator_cardinality": 1,
+            "cumulative_rows_scanned": 53774224,
+            "operator_rows_scanned": 0,
+            "operator_timing": 0.00030960000000000004,
+            "result_set_size": 16,
+            "children": [
+                {
+                    "cpu_time": 0.015572200000000003,
+                    "extra_info": {
+                        "Projections": "dt",
+                        "Estimated Cardinality": "1000"
+                    },
+                    "cumulative_cardinality": 36316,
+                    "operator_type": "PROJECTION",
+                    "operator_name": "PROJECTION",
+                    "operator_cardinality": 2708,
+                    "cumulative_rows_scanned": 53774224,
+                    "operator_rows_scanned": 0,
+                    "operator_timing": 0.0000014,
+                    "result_set_size": 43328,
+                    "children": [
+                        {
+                            "cpu_time": 0.015570800000000003,
+                            "extra_info": {
+                                "Projections": "dt",
+                                "Estimated Cardinality": "1000"
+                            },
+                            "cumulative_cardinality": 33608,
+                            "operator_type": "PROJECTION",
+                            "operator_name": "PROJECTION",
+                            "operator_cardinality": 2708,
+                            "cumulative_rows_scanned": 53774224,
+                            "operator_rows_scanned": 0,
+                            "operator_timing": 0.000047799999999999996,
+                            "result_set_size": 43328,
+                            "children": [
+                                {
+                                    "cpu_time": 0.015523000000000002,
+                                    "extra_info": {
+                                        "Expression": "(((t - #1) IS NOT NULL) AND ((t - #1) > 0.0))",
+                                        "Estimated Cardinality": "1000"
+                                    },
+                                    "cumulative_cardinality": 30900,
+                                    "operator_type": "FILTER",
+                                    "operator_name": "FILTER",
+                                    "operator_cardinality": 2708,
+                                    "cumulative_rows_scanned": 53774224,
+                                    "operator_rows_scanned": 0,
+                                    "operator_timing": 0.0013299,
+                                    "result_set_size": 86656,
+                                    "children": [
+                                        {
+                                            "cpu_time": 0.014193100000000002,
+                                            "extra_info": {
+                                                "Projections": [
+                                                    "#0",
+                                                    "#1"
+                                                ],
+                                                "Estimated Cardinality": "5000"
+                                            },
+                                            "cumulative_cardinality": 28192,
+                                            "operator_type": "PROJECTION",
+                                            "operator_name": "PROJECTION",
+                                            "operator_cardinality": 5000,
+                                            "cumulative_rows_scanned": 53774224,
+                                            "operator_rows_scanned": 0,
+                                            "operator_timing": 0.0000019,
+                                            "result_set_size": 160000,
+                                            "children": [
+                                                {
+                                                    "cpu_time": 0.014191200000000001,
+                                                    "extra_info": {
+                                                        "Projections": "LAG(t) OVER (ORDER BY t ASC NULLS LAST)"
+                                                    },
+                                                    "cumulative_cardinality": 23192,
+                                                    "operator_type": "WINDOW",
+                                                    "operator_name": "WINDOW",
+                                                    "operator_cardinality": 5000,
+                                                    "cumulative_rows_scanned": 53774224,
+                                                    "operator_rows_scanned": 0,
+                                                    "operator_timing": 0.011014000000000001,
+                                                    "result_set_size": 160000,
+                                                    "children": [
+                                                        {
+                                                            "cpu_time": 0.0031772,
+                                                            "extra_info": {
+                                                                "Projections": "t",
+                                                                "Estimated Cardinality": "5000"
+                                                            },
+                                                            "cumulative_cardinality": 18192,
+                                                            "operator_type": "PROJECTION",
+                                                            "operator_name": "PROJECTION",
+                                                            "operator_cardinality": 5000,
+                                                            "cumulative_rows_scanned": 53774224,
+                                                            "operator_rows_scanned": 0,
+                                                            "operator_timing": 0.0006414999999999999,
+                                                            "result_set_size": 80000,
+                                                            "children": [
+                                                                {
+                                                                    "cpu_time": 0.0025357,
+                                                                    "extra_info": {},
+                                                                    "cumulative_cardinality": 13192,
+                                                                    "operator_type": "STREAMING_LIMIT",
+                                                                    "operator_name": "STREAMING_LIMIT",
+                                                                    "operator_cardinality": 5000,
+                                                                    "cumulative_rows_scanned": 53774224,
+                                                                    "operator_rows_scanned": 0,
+                                                                    "operator_timing": 0.0000074,
+                                                                    "result_set_size": 40000,
+                                                                    "children": [
+                                                                        {
+                                                                            "cpu_time": 0.0025283000000000003,
+                                                                            "extra_info": {
+                                                                                "Function": "READ_PARQUET",
+                                                                                "Projections": "tbin",
+                                                                                "Estimated Cardinality": "53774224"
+                                                                            },
+                                                                            "cumulative_cardinality": 8192,
+                                                                            "operator_type": "TABLE_SCAN",
+                                                                            "operator_name": "READ_PARQUET ",
+                                                                            "operator_cardinality": 8192,
+                                                                            "cumulative_rows_scanned": 53774224,
+                                                                            "operator_rows_scanned": 53774224,
+                                                                            "operator_timing": 0.0025283000000000003,
+                                                                            "result_set_size": 65536,
+                                                                            "children": []
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,55 @@
+{
+    "query_name": "COPY pairs TO 'C:/Users/lucas/OneDrive/Documentos/Programas/cluster-transfusion/cluster-transfusion1/outputs/runs/run_cal03_replace_full_w48/w48/matching/matched_pairs.csv' (FORMAT CSV, HEADER TRUE)",
+    "blocked_thread_time": 0.0,
+    "cpu_time": 0.0029328,
+    "extra_info": {},
+    "cumulative_cardinality": 12656,
+    "cumulative_rows_scanned": 12655,
+    "result_set_size": 8,
+    "latency": 0.0400682,
+    "rows_returned": 1,
+    "children": [
+        {
+            "cpu_time": 0.0029328,
+            "extra_info": {},
+            "cumulative_cardinality": 12656,
+            "operator_type": "BATCH_COPY_TO_FILE",
+            "operator_name": "BATCH_COPY_TO_FILE",
+            "operator_cardinality": 1,
+            "cumulative_rows_scanned": 12655,
+            "operator_rows_scanned": 0,
+            "operator_timing": 0.0020279,
+            "result_set_size": 8,
+            "children": [
+                {
+                    "cpu_time": 0.0009048999999999999,
+                    "extra_info": {
+                        "Table": "pairs",
+                        "Type": "Sequential Scan",
+                        "Projections": [
+                            "stay_id_transf",
+                            "stay_id_ctrl",
+                            "propensity_score",
+                            "distance",
+                            "matched_at",
+                            "window_hours",
+                            "criteria",
+                            "match_ratio",
+                            "replace"
+                        ],
+                        "Estimated Cardinality": "12655"
+                    },
+                    "cumulative_cardinality": 12655,
+                    "operator_type": "TABLE_SCAN",
+                    "operator_name": "SEQ_SCAN ",
+                    "operator_cardinality": 12655,
+                    "cumulative_rows_scanned": 12655,
+                    "operator_rows_scanned": 12655,
+                    "operator_timing": 0.0009048999999999999,
+                    "result_set_size": 1025055,
+                    "children": []
+                }
+            ]
+        }
+    ]
+}

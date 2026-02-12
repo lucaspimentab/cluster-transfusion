@@ -1,0 +1,82 @@
+RELATORIO FORMALIZADO - MINIROCKET K=3 (COMORB_LAB_VITAL)
+Versao consolidada: hb_cut e no_hb_cut juntos por subgrupo (menos repeticao).
+
+Total grupos: 12 (maleficio=7, beneficio=5)
+
+GRUPOS DE MALEFICIO
+- Cluster 2 | metastatic solid tumor > 0 | diff_global=33.96 a 44.78 pp | n_regras=13 | n_exato_total=481
+  comparacao_hb: no_hb_cut: diff=37.00 pp, n=481
+  estaticos_consolidados: idade_media=66.0, APSIII_medio=49.5, SAPSII_medio=46.0, BMI_medio=27.5, Hb_media=10.18, Hb_p50=9.30
+  exames_exatos_representativo(no_hb_cut): creatinine: media=1.15, p50=0.90 | dbp: media=66.81, p50=66.00 | glucose lab: media=110.61, p50=90.00 | heart rate: media=86.18, p50=82.00 | hemoglobin: media=11.70, p50=14.00 | mbp: media=80.49, p50=80.00 | platelets: media=234.25, p50=250.00 | potassium: media=4.10, p50=4.00 | resp rate: media=18.24, p50=16.00 | sbp: media=114.59, p50=117.00 | sodium: media=138.88, p50=140.00 | spo2: media=97.75, p50=98.00 | temperature: media=36.88, p50=37.00
+  volume_transfusao_ml_representativo(no_hb_cut): evento_max mediana=350.0 [p25=350.0, p75=375.0] (min=8.3, max=11729.0); total_icu_max mediana=350.0 [p25=350.0, p75=375.0] (min=8.3, max=11729.0)
+  desfechos_secundarios_representativo(no_hb_cut): ICU LOS +69.6 h (faixa +4.2 h a +97.7 h; n_codigos=13) | VM time +19.0 h (faixa +2.2 h a +22.7 h; n_codigos=13) | Ventilation +11.4 h (faixa +3.4 h a +15.3 h; n_codigos=13) | Any vasopressor -12.80 pp (faixa -17.18 pp a -4.12 pp; n_codigos=13) | RRT +0.81 pp (faixa -1.42 pp a +2.71 pp; n_codigos=13) | NEE max -0.025 mcg/kg/min (faixa -0.057 mcg/kg/min a +0.026 mcg/kg/min; n_codigos=13)
+- Cluster 2 | malignant cancer > 0 | diff_global=18.58 a 33.54 pp | n_regras=30 | n_exato_total=1604
+  comparacao_hb: hb_cut: diff=29.96 pp, n=516 | no_hb_cut: diff=24.23 pp, n=1088
+  estaticos_consolidados: idade_media=68.5, APSIII_medio=52.5, SAPSII_medio=45.8, BMI_medio=27.6, Hb_media=8.94, Hb_p50=8.29
+  exames_exatos_representativo(no_hb_cut): bilirubin total: media=1.09, p50=0.70 | creatinine: media=1.16, p50=0.90 | dbp: media=66.16, p50=64.00 | glucose lab: media=114.25, p50=90.00 | glucose vital: media=123.06, p50=96.50 | heart rate: media=85.80, p50=81.00 | hemoglobin: media=11.50, p50=14.00 | lactate: media=1.77, p50=1.20 | mbp: media=80.09, p50=79.00 | platelets: media=213.73, p50=250.00 | potassium: media=4.11, p50=4.00 | resp rate: media=18.53, p50=16.00 | sbp: media=115.59, p50=120.00 | sodium: media=139.08, p50=140.00 | spo2: media=97.64, p50=98.00 | temperature: media=36.92, p50=37.00
+  volume_transfusao_ml_representativo(no_hb_cut): evento_max mediana=350.0 [p25=350.0, p75=375.0] (min=8.3, max=11729.0); total_icu_max mediana=350.0 [p25=350.0, p75=375.0] (min=8.3, max=11729.0)
+  desfechos_secundarios_representativo(no_hb_cut): ICU LOS +87.5 h (faixa -0.6 h a +109.3 h; n_codigos=14) | VM time +15.3 h (faixa -1.0 h a +24.1 h; n_codigos=14) | Ventilation +8.4 h (faixa -1.4 h a +10.8 h; n_codigos=14) | Any vasopressor -11.98 pp (faixa -15.77 pp a -5.29 pp; n_codigos=14) | RRT +1.08 pp (faixa -0.49 pp a +3.48 pp; n_codigos=14) | NEE max -0.031 mcg/kg/min (faixa -0.088 mcg/kg/min a +0.054 mcg/kg/min; n_codigos=14)
+- Cluster 1 | malignant cancer > 0 | diff_global=19.05 a 29.91 pp | n_regras=15 | n_exato_total=403
+  comparacao_hb: no_hb_cut: diff=24.30 pp, n=403
+  estaticos_consolidados: idade_media=68.4, APSIII_medio=57.9, SAPSII_medio=48.0, BMI_medio=27.6, Hb_media=7.33, Hb_p50=7.00
+  exames_exatos_representativo(no_hb_cut): bilirubin total: media=1.79, p50=0.70 | creatinine: media=1.57, p50=1.10 | dbp: media=59.29, p50=57.00 | glucose lab: media=143.04, p50=131.00 | glucose vital: media=145.96, p50=133.00 | heart rate: media=92.17, p50=90.00 | hemoglobin: media=8.69, p50=8.20 | lactate: media=1.93, p50=1.30 | mbp: media=74.60, p50=72.00 | platelets: media=196.44, p50=168.00 | resp rate: media=20.87, p50=20.00 | sbp: media=115.11, p50=113.00 | sodium: media=138.56, p50=139.00 | spo2: media=96.75, p50=97.00 | temperature: media=36.95, p50=36.94
+  volume_transfusao_ml_representativo(no_hb_cut): evento_max mediana=350.0 [p25=284.5, p75=375.0] (min=4.8, max=1750.0); total_icu_max mediana=350.0 [p25=284.5, p75=375.0] (min=4.8, max=1750.0)
+  desfechos_secundarios_representativo(no_hb_cut): ICU LOS +749.7 h (faixa +417.1 h a +950.6 h; n_codigos=15) | VM time +124.4 h (faixa +71.8 h a +159.7 h; n_codigos=15) | Ventilation +66.0 h (faixa +35.3 h a +84.5 h; n_codigos=15) | Any vasopressor -12.79 pp (faixa -22.22 pp a +0.50 pp; n_codigos=15) | RRT +11.16 pp (faixa +2.91 pp a +16.42 pp; n_codigos=15) | NEE max +0.271 mcg/kg/min (faixa +0.107 mcg/kg/min a +0.575 mcg/kg/min; n_codigos=15)
+- Cluster 2 | severe liver disease > 0 | diff_global=15.12 a 24.01 pp | n_regras=21 | n_exato_total=922
+  comparacao_hb: hb_cut: diff=17.62 pp, n=308 | no_hb_cut: diff=17.68 pp, n=614
+  estaticos_consolidados: idade_media=58.0, APSIII_medio=63.4, SAPSII_medio=43.5, BMI_medio=29.0, Hb_media=8.68, Hb_p50=8.08
+  exames_exatos_representativo(no_hb_cut): bilirubin total: media=3.55, p50=0.70 | creatinine: media=1.39, p50=0.90 | dbp: media=64.52, p50=63.00 | glucose lab: media=117.79, p50=90.00 | heart rate: media=86.25, p50=84.00 | hemoglobin: media=11.14, p50=10.70 | mbp: media=77.81, p50=75.00 | platelets: media=175.27, p50=179.50 | potassium: media=4.15, p50=4.00 | resp rate: media=18.11, p50=16.00 | sbp: media=112.87, p50=113.50 | sodium: media=138.41, p50=140.00 | spo2: media=97.64, p50=98.00 | temperature: media=36.78, p50=37.00
+  volume_transfusao_ml_representativo(no_hb_cut): evento_max mediana=350.0 [p25=350.0, p75=375.0] (min=10.8, max=8705.0); total_icu_max mediana=350.0 [p25=350.0, p75=375.0] (min=10.8, max=8705.0)
+  desfechos_secundarios_representativo(no_hb_cut): ICU LOS +215.2 h (faixa +159.6 h a +266.1 h; n_codigos=12) | VM time +31.6 h (faixa +15.1 h a +39.5 h; n_codigos=12) | Ventilation +18.2 h (faixa +14.3 h a +26.5 h; n_codigos=12) | Any vasopressor -5.03 pp (faixa -12.37 pp a -0.62 pp; n_codigos=12) | RRT +10.42 pp (faixa +7.37 pp a +15.81 pp; n_codigos=12) | NEE max +0.107 mcg/kg/min (faixa +0.039 mcg/kg/min a +0.160 mcg/kg/min; n_codigos=12)
+- Cluster 2 | renal disease > 0 | diff_global=15.76 a 23.13 pp | n_regras=9 | n_exato_total=1487
+  comparacao_hb: hb_cut: diff=16.94 pp, n=591 | no_hb_cut: diff=16.98 pp, n=896
+  estaticos_consolidados: idade_media=72.4, APSIII_medio=56.3, SAPSII_medio=44.5, BMI_medio=28.6, Hb_media=8.21, Hb_p50=7.68
+  exames_exatos_representativo(no_hb_cut): bilirubin total: media=1.08, p50=0.70 | creatinine: media=2.08, p50=1.23 | dbp: media=62.01, p50=58.00 | glucose lab: media=124.23, p50=92.50 | potassium: media=4.25, p50=4.00 | resp rate: media=18.71, p50=18.00
+  volume_transfusao_ml_representativo(no_hb_cut): evento_max mediana=350.0 [p25=300.0, p75=375.0] (min=0.7, max=11415.0); total_icu_max mediana=350.0 [p25=300.0, p75=375.0] (min=0.7, max=11415.0)
+  desfechos_secundarios_representativo(no_hb_cut): ICU LOS +175.1 h (faixa +144.1 h a +230.0 h; n_codigos=4) | VM time +32.6 h (faixa +30.0 h a +46.7 h; n_codigos=4) | Ventilation +18.3 h (faixa +15.3 h a +25.9 h; n_codigos=4) | Any vasopressor -11.46 pp (faixa -14.63 pp a -4.14 pp; n_codigos=4) | RRT +15.50 pp (faixa +13.59 pp a +22.10 pp; n_codigos=4) | NEE max -0.047 mcg/kg/min (faixa -0.111 mcg/kg/min a -0.001 mcg/kg/min; n_codigos=4)
+- Cluster 2 | congestive heart failure > 0 | diff_global=15.25 a 18.45 pp | n_regras=5 | n_exato_total=1439
+  comparacao_hb: hb_cut: diff=18.24 pp, n=529 | no_hb_cut: diff=16.52 pp, n=910
+  estaticos_consolidados: idade_media=74.1, APSIII_medio=55.3, SAPSII_medio=44.1, BMI_medio=28.4, Hb_media=8.28, Hb_p50=7.77
+  exames_exatos_representativo(no_hb_cut): bilirubin total: media=0.92, p50=0.70 | resp rate: media=19.66, p50=19.00 | sbp: media=115.46, p50=115.00
+  volume_transfusao_ml_representativo(no_hb_cut): evento_max mediana=350.0 [p25=300.0, p75=375.0] (min=7.5, max=4079.0); total_icu_max mediana=350.0 [p25=300.0, p75=375.0] (min=7.5, max=4079.0)
+  desfechos_secundarios_representativo(no_hb_cut): ICU LOS +180.2 h (faixa +173.4 h a +272.4 h; n_codigos=3) | VM time +32.1 h (faixa +28.7 h a +51.1 h; n_codigos=3) | Ventilation +21.8 h (faixa +13.4 h a +37.3 h; n_codigos=3) | Any vasopressor -5.94 pp (faixa -19.15 pp a +4.89 pp; n_codigos=3) | RRT +7.97 pp (faixa +5.67 pp a +13.20 pp; n_codigos=3) | NEE max -0.002 mcg/kg/min (faixa -0.138 mcg/kg/min a +0.082 mcg/kg/min; n_codigos=3)
+- Cluster 2 | diabetes without cc > 0 | diff_global=15.00 a 15.43 pp | n_regras=2 | n_exato_total=437
+  comparacao_hb: hb_cut: diff=15.21 pp, n=437
+  estaticos_consolidados: idade_media=69.5, APSIII_medio=54.9, SAPSII_medio=42.7, BMI_medio=29.7, Hb_media=7.24, Hb_p50=7.30
+  exames_exatos_representativo(hb_cut): creatinine: media=1.56, p50=1.10 | resp rate: media=19.55, p50=19.00
+  volume_transfusao_ml_representativo(hb_cut): evento_max mediana=350.0 [p25=297.0, p75=375.0] (min=14.2, max=3500.0); total_icu_max mediana=350.0 [p25=297.0, p75=375.0] (min=14.2, max=3500.0)
+  desfechos_secundarios_representativo(hb_cut): ICU LOS +174.9 h (faixa +143.8 h a +206.1 h; n_codigos=2) | VM time +40.1 h (faixa +36.7 h a +43.4 h; n_codigos=2) | Ventilation +24.0 h (faixa +21.1 h a +26.9 h; n_codigos=2) | Any vasopressor +2.12 pp (faixa -1.14 pp a +5.38 pp; n_codigos=2) | RRT +6.55 pp (faixa +6.54 pp a +6.57 pp; n_codigos=2) | NEE max -0.037 mcg/kg/min (faixa -0.097 mcg/kg/min a +0.022 mcg/kg/min; n_codigos=2)
+
+GRUPOS DE BENEFICIO
+- Cluster 2 | diabetes without cc > 0 | diff_global=-27.42 a -16.98 pp | n_regras=5 | n_exato_total=1182
+  comparacao_hb: hb_cut: diff=-26.92 pp, n=428 | no_hb_cut: diff=-17.81 pp, n=754
+  estaticos_consolidados: idade_media=70.2, APSIII_medio=47.4, SAPSII_medio=41.2, BMI_medio=29.6, Hb_media=8.95, Hb_p50=8.27
+  exames_exatos_representativo(no_hb_cut): dbp: media=75.84, p50=80.00 | hemoglobin: media=12.09, p50=14.00 | mbp: media=90.44, p50=93.00
+  volume_transfusao_ml_representativo(no_hb_cut): evento_max mediana=375.0 [p25=350.0, p75=700.0] (min=0.7, max=11729.0); total_icu_max mediana=375.0 [p25=350.0, p75=700.0] (min=0.7, max=11729.0)
+  desfechos_secundarios_representativo(no_hb_cut): ICU LOS +117.0 h (faixa +115.8 h a +118.1 h; n_codigos=2) | VM time +24.0 h (faixa +23.4 h a +24.6 h; n_codigos=2) | Ventilation +16.4 h (faixa +16.3 h a +16.5 h; n_codigos=2) | Any vasopressor +5.98 pp (faixa +5.32 pp a +6.63 pp; n_codigos=2) | RRT -0.43 pp (faixa -0.72 pp a -0.14 pp; n_codigos=2) | NEE max -0.065 mcg/kg/min (faixa -0.066 mcg/kg/min a -0.063 mcg/kg/min; n_codigos=2)
+- Cluster 2 | renal disease > 0 | diff_global=-22.94 a -17.20 pp | n_regras=3 | n_exato_total=482
+  comparacao_hb: hb_cut: diff=-22.11 pp, n=482
+  estaticos_consolidados: idade_media=70.5, APSIII_medio=53.3, SAPSII_medio=44.9, BMI_medio=28.2, Hb_media=7.29, Hb_p50=7.40
+  exames_exatos_representativo(hb_cut): dbp: media=73.11, p50=80.00 | hemoglobin: media=11.20, p50=14.00 | mbp: media=87.85, p50=93.00
+  volume_transfusao_ml_representativo(hb_cut): evento_max mediana=350.0 [p25=350.0, p75=700.0] (min=9.6, max=6953.0); total_icu_max mediana=350.0 [p25=350.0, p75=700.0] (min=9.6, max=6953.0)
+  desfechos_secundarios_representativo(hb_cut): ICU LOS +262.4 h (faixa +247.3 h a +328.0 h; n_codigos=3) | VM time +41.5 h (faixa +40.1 h a +47.7 h; n_codigos=3) | Ventilation +26.1 h (faixa +23.1 h a +27.6 h; n_codigos=3) | Any vasopressor +11.06 pp (faixa +3.95 pp a +11.86 pp; n_codigos=3) | RRT +13.51 pp (faixa +9.49 pp a +14.69 pp; n_codigos=3) | NEE max +0.033 mcg/kg/min (faixa -0.020 mcg/kg/min a +0.039 mcg/kg/min; n_codigos=3)
+- Cluster 2 | congestive heart failure > 0 | diff_global=-17.85 a -17.58 pp | n_regras=2 | n_exato_total=506
+  comparacao_hb: hb_cut: diff=-17.71 pp, n=506
+  estaticos_consolidados: idade_media=72.1, APSIII_medio=47.8, SAPSII_medio=43.4, BMI_medio=27.8, Hb_media=7.39, Hb_p50=7.50
+  exames_exatos_representativo(hb_cut): dbp: media=75.72, p50=80.00 | mbp: media=90.18, p50=93.00
+  volume_transfusao_ml_representativo(hb_cut): evento_max mediana=350.0 [p25=350.0, p75=700.0] (min=15.0, max=8786.0); total_icu_max mediana=350.0 [p25=350.0, p75=700.0] (min=15.0, max=8786.0)
+  desfechos_secundarios_representativo(hb_cut): ICU LOS +256.5 h (faixa +247.1 h a +265.9 h; n_codigos=2) | VM time +38.1 h (faixa +37.5 h a +38.7 h; n_codigos=2) | Ventilation +28.2 h (faixa +26.7 h a +29.6 h; n_codigos=2) | Any vasopressor +15.13 pp (faixa +15.04 pp a +15.21 pp; n_codigos=2) | RRT +4.04 pp (faixa +4.03 pp a +4.06 pp; n_codigos=2) | NEE max +0.036 mcg/kg/min (faixa +0.035 mcg/kg/min a +0.037 mcg/kg/min; n_codigos=2)
+- Cluster 2 | diabetes with cc > 0 | diff_global=-15.85 a -15.81 pp | n_regras=2 | n_exato_total=388
+  comparacao_hb: no_hb_cut: diff=-15.83 pp, n=388
+  estaticos_consolidados: idade_media=69.0, APSIII_medio=50.8, SAPSII_medio=42.9, BMI_medio=30.0, Hb_media=9.22, Hb_p50=8.05
+  exames_exatos_representativo(no_hb_cut): dbp: media=74.15, p50=80.00 | mbp: media=88.88, p50=93.00
+  volume_transfusao_ml_representativo(no_hb_cut): evento_max mediana=350.0 [p25=350.0, p75=700.0] (min=18.8, max=6940.0); total_icu_max mediana=350.0 [p25=350.0, p75=700.0] (min=18.8, max=6940.0)
+  desfechos_secundarios_representativo(no_hb_cut): ICU LOS +126.4 h (faixa +112.7 h a +140.1 h; n_codigos=2) | VM time +21.9 h (faixa +21.0 h a +22.8 h; n_codigos=2) | Ventilation +11.0 h (faixa +11.0 h a +11.0 h; n_codigos=2) | Any vasopressor +0.47 pp (faixa -3.02 pp a +3.95 pp; n_codigos=2) | RRT +8.52 pp (faixa +7.60 pp a +9.43 pp; n_codigos=2) | NEE max -0.146 mcg/kg/min (faixa -0.176 mcg/kg/min a -0.117 mcg/kg/min; n_codigos=2)
+- Cluster 2 | cerebrovascular disease > 0 | diff_global=-15.50 a -15.45 pp | n_regras=2 | n_exato_total=653
+  comparacao_hb: hb_cut: diff=-15.50 pp, n=271 | no_hb_cut: diff=-15.45 pp, n=382
+  estaticos_consolidados: idade_media=71.3, APSIII_medio=49.2, SAPSII_medio=43.8, BMI_medio=27.3, Hb_media=8.78, Hb_p50=8.17
+  exames_exatos_representativo(no_hb_cut): lactate: media=2.16, p50=1.20 | mbp: media=91.36, p50=93.00
+  volume_transfusao_ml_representativo(no_hb_cut): evento_max mediana=375.0 [p25=350.0, p75=700.0] (min=12.3, max=5950.0); total_icu_max mediana=375.0 [p25=350.0, p75=700.0] (min=12.3, max=5950.0)
+  desfechos_secundarios_representativo(no_hb_cut): ICU LOS +352.8 h (faixa +352.8 h a +352.8 h; n_codigos=1) | VM time +59.7 h (faixa +59.7 h a +59.7 h; n_codigos=1) | Ventilation +46.4 h (faixa +46.4 h a +46.4 h; n_codigos=1) | Any vasopressor +1.57 pp (faixa +1.57 pp a +1.57 pp; n_codigos=1) | RRT +2.88 pp (faixa +2.88 pp a +2.88 pp; n_codigos=1) | NEE max -0.039 mcg/kg/min (faixa -0.039 mcg/kg/min a -0.039 mcg/kg/min; n_codigos=1)
+
+Fonte tabular: subgrupos_comorb_lab_vital_agrupados_exames_hbmerge_stats_subgrupo_sec_volume_minirocket_k3.csv

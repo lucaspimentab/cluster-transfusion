@@ -1,0 +1,4 @@
+{"ts": "2026-02-12T01:37:33.035897+00:00", "event": "logger_ready", "run_name": "step3_embed_minirocket_temporal", "log_path": "C:\\Users\\lucas\\OneDrive\\Documentos\\Programas\\cluster-transfusion\\cluster-transfusion1\\outputs\\runs\\run_cal03_replace_full_w48\\w48\\logs\\step3_embed_minirocket_temporal_20260212T013733Z.jsonl"}
+{"ts": "2026-02-12T01:37:33.057477+00:00", "event": "profiling_enabled", "path": "C:\\Users\\lucas\\OneDrive\\Documentos\\Programas\\cluster-transfusion\\cluster-transfusion1\\outputs\\runs\\run_cal03_replace_full_w48\\w48\\profiling\\step3_embed_minirocket_temporal.json"}
+{"ts": "2026-02-12T01:37:33.782837+00:00", "event": "embedding_features_candidate", "n_features": 439, "max_features": 0, "use_all": false}
+{"ts": "2026-02-12T01:37:34.184201+00:00", "event": "embedding_time_step", "step_minutes": 5}
