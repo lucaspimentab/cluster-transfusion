@@ -72,10 +72,10 @@ PHENOTYPE_BASES = [
 
 
 def parse_args():
-    parser = argparse.ArgumentParser(description="Step 5: Embedding cluster reports")
+    parser = argparse.ArgumentParser(description="Step 4: Embedding cluster reports")
     parser.add_argument("--run_id", type=str, default=None)
     parser.add_argument("--window", type=int, default=24, choices=[24, 48, 72])
-    parser.add_argument("--embedding", type=str, default="ts2vec", choices=["ts2vec", "minirocket"])
+    parser.add_argument("--embedding", type=str, default="minirocket", choices=["minirocket"])
     parser.add_argument("--k_list", type=str, default="2,3,4,5,6")
     parser.add_argument("--n_clusters", type=int, default=None)
     parser.add_argument("--silhouette_threshold", type=float, default=0.10)
@@ -182,7 +182,7 @@ def main():
     features_dir = resolve_outputs_dir(root, args.run_id, window=args.window, subdir="features")
     shared_dir = resolve_shared_dir(root, args.run_id)
 
-    logger, _ = setup_logging("step5_reports", window_dir)
+    logger, _ = setup_logging("step4_reports", window_dir)
 
     matched_path = matching_dir / "matched_pairs.parquet"
     cohort_path = shared_dir / "outcomes_cohort.parquet"
@@ -197,7 +197,7 @@ def main():
         raise FileNotFoundError(f"Missing embeddings: {embeddings_path}")
 
     con = connect_duckdb()
-    profile_path = window_dir / "profiling" / "step5_reports.json"
+    profile_path = window_dir / "profiling" / "step4_reports.json"
     enable_profiling(con, profile_path, logger=logger)
 
     pairs = con.execute(
@@ -366,7 +366,7 @@ def main():
         combined.to_csv(combined_match, index=False)
         log_event(
             logger,
-            "step5_complete",
+            "step4_complete",
             cluster_report_path=str(combined_path),
             metrics_path=str(metrics_path),
             embedding=args.embedding,
@@ -376,7 +376,7 @@ def main():
     else:
         log_event(
             logger,
-            "step5_complete",
+            "step4_complete",
             metrics_path=str(metrics_path),
             embedding=args.embedding,
             k_list="%s" % k_values,
