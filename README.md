@@ -53,11 +53,9 @@ Configuração fixa no `scripts/run_all.py`:
 4. `step3_embed_minirocket_temporal.py`
 5. `step4_reports.py --embedding minirocket --run_scan_suite`
 
-Observação: o antigo bloco `step5_*` foi consolidado dentro do `step4_reports.py`.
-
 ## Resultado final principal
 
-Arquivo final para discussão clínica (scan auto-discovery formalizado):
+Arquivo final para discussão clínica:
 
 `outputs/runs/run_cal03_replace_full_w48/w48/reports/relatorio_scan_auto_discovery_formalizado.txt`
 
@@ -71,8 +69,3 @@ Arquivo final para discussão clínica (scan auto-discovery formalizado):
 - `outputs/runs/run_cal03_replace_full_w48/w48/reports/cluster_k_quality_minirocket.csv`
 - `outputs/runs/run_cal03_replace_full_w48/w48/reports/scan_cluster_cross_k2_k3_sign.csv`
 - `outputs/runs/run_cal03_replace_full_w48/w48/reports/scan_cluster_cross_k2_k3_groups.csv`
-
-## Observações
-
-- Fluxo e artefatos de **TS2Vec** foram removidos.
-- Run antigo `run_cal03_noreplace_w48` foi removido para reduzir ruído.
