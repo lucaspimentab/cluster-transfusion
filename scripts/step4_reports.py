@@ -2,6 +2,8 @@
 
 import argparse
 import re
+import subprocess
+import sys
 
 import numpy as np
 import pandas as pd
@@ -81,6 +83,31 @@ def parse_args():
     parser.add_argument("--silhouette_threshold", type=float, default=0.10)
     parser.add_argument("--silhouette_sample", type=int, default=5000)
     parser.add_argument("--seed", type=int, default=42)
+    parser.add_argument(
+        "--outputs_mode",
+        type=str,
+        default="legacy",
+        choices=["legacy", "minimal"],
+        help="legacy=gera todos os csv antigos; minimal=gera apenas metrics+assignments",
+    )
+    parser.add_argument("--run_scan_suite", action="store_true")
+    parser.add_argument("--scan_feature_set", type=str, default="all", choices=["all", "core"])
+    parser.add_argument("--scan_drop_bases", type=str, default="apsiii")
+    parser.add_argument("--scan_min_pairs", type=int, default=200)
+    parser.add_argument("--scan_min_abs_diff_pp", type=float, default=15.0)
+    parser.add_argument("--scan_min_prevalence", type=float, default=0.05)
+    parser.add_argument("--scan_max_prevalence", type=float, default=0.40)
+    parser.add_argument("--scan_min_depth", type=int, default=2)
+    parser.add_argument("--scan_max_depth", type=int, default=3)
+    parser.add_argument("--scan_min_axes", type=int, default=2)
+    parser.add_argument("--scan_pool_size", type=int, default=250)
+    parser.add_argument("--scan_pool_mode", type=str, default="balanced", choices=["balanced", "absolute"])
+    parser.add_argument("--scan_beam_width", type=int, default=60)
+    parser.add_argument("--scan_top_bootstrap", type=int, default=250)
+    parser.add_argument("--scan_bootstrap_iters", type=int, default=80)
+    parser.add_argument("--scan_bootstrap_min_stability", type=float, default=0.70)
+    parser.add_argument("--scan_cluster_k", type=int, default=2)
+    parser.add_argument("--scan_top_groups_cross", type=int, default=40)
     parser.add_argument("--dry-run", action="store_true")
     return parser.parse_args()
 
@@ -164,12 +191,74 @@ def _cleanup_old_outputs(reports_dir, matching_dir, embedding: str) -> None:
         f"cluster_benefit_{embedding}*.csv",
         f"cluster_metrics_{embedding}*.csv",
         f"cluster_phenotype_{embedding}*.csv",
+        f"cluster_assignments_mortality_{embedding}.csv",
     ]
     for pattern in patterns:
         for path in reports_dir.glob(pattern):
             path.unlink(missing_ok=True)
         for path in matching_dir.glob(pattern):
             path.unlink(missing_ok=True)
+
+
+def _run_scan_suite(root, args) -> None:
+    scripts_dir = root / "scripts" / "reports"
+    base_args = ["--run_id", args.run_id, "--window", str(args.window)]
+
+    scan_args = base_args + [
+        "--feature_set",
+        args.scan_feature_set,
+        "--drop_bases",
+        args.scan_drop_bases,
+        "--min_pairs",
+        str(args.scan_min_pairs),
+        "--min_abs_diff_pp",
+        str(args.scan_min_abs_diff_pp),
+        "--min_prevalence",
+        str(args.scan_min_prevalence),
+        "--max_prevalence",
+        str(args.scan_max_prevalence),
+        "--min_depth",
+        str(args.scan_min_depth),
+        "--max_depth",
+        str(args.scan_max_depth),
+        "--min_axes",
+        str(args.scan_min_axes),
+        "--pool_size",
+        str(args.scan_pool_size),
+        "--pool_mode",
+        args.scan_pool_mode,
+        "--beam_width",
+        str(args.scan_beam_width),
+        "--top_bootstrap",
+        str(args.scan_top_bootstrap),
+        "--bootstrap_iters",
+        str(args.scan_bootstrap_iters),
+        "--bootstrap_min_stability",
+        str(args.scan_bootstrap_min_stability),
+        "--random_state",
+        str(args.seed),
+    ]
+
+    cmds = [
+        [sys.executable, (scripts_dir / "scan_auto_discovery.py").as_posix(), *scan_args],
+        [sys.executable, (scripts_dir / "cluster_quality_summary.py").as_posix(), *base_args],
+        [
+            sys.executable,
+            (scripts_dir / "scan_cluster_cross_k2_k3.py").as_posix(),
+            *base_args,
+            "--top_groups",
+            str(args.scan_top_groups_cross),
+        ],
+        [
+            sys.executable,
+            (scripts_dir / "formalize_scan_auto_discovery.py").as_posix(),
+            *base_args,
+            "--cluster_k",
+            str(args.scan_cluster_k),
+        ],
+    ]
+    for cmd in cmds:
+        subprocess.check_call(cmd)
 
 
 def main():
@@ -246,6 +335,7 @@ def main():
     metrics_rows = []
     combined_rows = []
     phenotype_rows = []
+    assignment_rows = []
 
     for k in k_values:
         if X.shape[0] < k:
@@ -284,6 +374,20 @@ def main():
             continue
 
         clusters_df = pd.DataFrame({"stay_id": emb_df["stay_id"], "cluster": labels})
+        assignment_rows.append(
+            pd.DataFrame(
+                {
+                    "stay_id": emb_df["stay_id"].astype(int),
+                    "cluster": labels.astype(int),
+                    "k": int(k),
+                    "group": "transfused",
+                }
+            )
+        )
+
+        if args.outputs_mode == "minimal":
+            continue
+
         k_rows = []
         for cluster_id in sorted(clusters_df["cluster"].unique()):
             transf_ids = clusters_df[clusters_df["cluster"] == cluster_id]["stay_id"]
@@ -358,6 +462,13 @@ def main():
         phen_match = matching_dir / f"cluster_phenotype_{args.embedding}.csv"
         phenotype_df.to_csv(phen_match, index=False)
 
+    if assignment_rows:
+        assign_df = pd.concat(assignment_rows, ignore_index=True)
+        assign_path = reports_dir / f"cluster_assignments_mortality_{args.embedding}.csv"
+        assign_df.to_csv(assign_path, index=False)
+        assign_match = matching_dir / f"cluster_assignments_mortality_{args.embedding}.csv"
+        assign_df.to_csv(assign_match, index=False)
+
     if combined_rows:
         combined = pd.concat(combined_rows, ignore_index=True)
         combined_path = reports_dir / f"cluster_benefit_{args.embedding}.csv"
@@ -372,6 +483,7 @@ def main():
             embedding=args.embedding,
             k_list="%s" % k_values,
             silhouette_threshold=args.silhouette_threshold,
+            outputs_mode=args.outputs_mode,
         )
     else:
         log_event(
@@ -381,7 +493,12 @@ def main():
             embedding=args.embedding,
             k_list="%s" % k_values,
             silhouette_threshold=args.silhouette_threshold,
+            outputs_mode=args.outputs_mode,
         )
+
+    if args.run_scan_suite:
+        _run_scan_suite(root, args)
+        log_event(logger, "scan_suite_complete", cluster_k=args.scan_cluster_k)
 
 
 if __name__ == "__main__":

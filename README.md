@@ -51,17 +51,26 @@ Configuração fixa no `scripts/run_all.py`:
 2. `step1_build_baseline_features.py`
 3. `step2_match_controls.py`
 4. `step3_embed_minirocket_temporal.py`
-5. `step4_reports.py --embedding minirocket`
+5. `step4_reports.py --embedding minirocket --run_scan_suite`
+
+Observação: o antigo bloco `step5_*` foi consolidado dentro do `step4_reports.py`.
 
 ## Resultado final principal
 
-Arquivo final para discussão clínica:
+Arquivo final para discussão clínica (scan auto-discovery formalizado):
 
-`outputs/runs/run_cal03_replace_full_w48/w48/reports/relatorio_subgrupos_minirocket_k3_comorb_lab_vital_formalizado.txt`
+`outputs/runs/run_cal03_replace_full_w48/w48/reports/relatorio_scan_auto_discovery_formalizado.txt`
 
-Manifest dos arquivos finais mantidos:
+## Artefatos principais gerados
 
-`outputs/runs/run_cal03_replace_full_w48/w48/reports/MANIFEST_RESULTADOS_FINAIS.txt`
+- `outputs/runs/run_cal03_replace_full_w48/w48/reports/cluster_metrics_minirocket.csv`
+- `outputs/runs/run_cal03_replace_full_w48/w48/reports/cluster_assignments_mortality_minirocket.csv`
+- `outputs/runs/run_cal03_replace_full_w48/w48/reports/auto_discovery_rules_all.csv`
+- `outputs/runs/run_cal03_replace_full_w48/w48/reports/auto_discovery_rules_strong.csv`
+- `outputs/runs/run_cal03_replace_full_w48/w48/reports/relatorio_scan_auto_discovery_formalizado.txt`
+- `outputs/runs/run_cal03_replace_full_w48/w48/reports/cluster_k_quality_minirocket.csv`
+- `outputs/runs/run_cal03_replace_full_w48/w48/reports/scan_cluster_cross_k2_k3_sign.csv`
+- `outputs/runs/run_cal03_replace_full_w48/w48/reports/scan_cluster_cross_k2_k3_groups.csv`
 
 ## Observações
 
