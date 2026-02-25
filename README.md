@@ -1,29 +1,30 @@
-# Cluster-Transfusion (MiniRocket)
+# Cluster-Transfusion
 
-Pipeline para reproduzir a analise final com **MiniRocket** (janela de 48h) usando dados clinicos locais.
+Projeto de estratificação de pacientes críticos com transfusão, usando matching por propensity score, embeddings temporais (MiniRocket) e descoberta de subgrupos clínicos.
 
-## Publicacao segura
+## Objetivo
 
-Este repositorio foi preparado para publicacao publica sem incluir dados sensiveis.
+Gerar uma análise reprodutível para o estudo de associação entre transfusão de concentrado de hemácias e desfechos clínicos em UTI, com foco em:
 
-- Nao versiona dados de pacientes nem artefatos de execucao.
-- Arquivos com identificadores (`stay_id`, `subject_id`) ficam somente no ambiente local.
-- Logs com caminhos locais da maquina tambem ficam fora do Git.
+- coorte temporal padronizada por `stay_id`;
+- pareamento transfundidos vs. controles;
+- clusterização por representação temporal;
+- varredura de regras e subgrupos com diferença de mortalidade.
 
-## Estrutura esperada (local)
+## Estrutura local esperada
 
 ```text
 dataset/
-  timegrid_features/                # privado (nao versionado)
-  outputs_outcomes/                 # privado (nao versionado)
+  timegrid_features/                # privado (não versionado)
+  outputs_outcomes/                 # privado (não versionado)
     outcomes_by_stay_full.csv
 configs/
   lab_itemids.yaml
-outputs/                            # gerado localmente (nao versionado)
+outputs/                            # gerado localmente (não versionado)
 scripts/
 ```
 
-## Dependencias
+## Requisitos
 
 - Python 3.10+
 - duckdb
@@ -36,13 +37,16 @@ scripts/
 pip install duckdb pandas numpy pyarrow scikit-learn
 ```
 
-## Execucao do pipeline
+## Execução
+
+O fluxo é fechado e já está configurado com os valores usados no estudo.
 
 ```bash
 python scripts/run_all.py
 ```
 
-Configuracao fixa em `scripts/run_all.py`:
+Configuração fixa em `scripts/run_all.py`:
+
 - `RUN_ID=run_cal03_replace_full_w48`
 - `WINDOW=48`
 - `SEED=42`
@@ -50,16 +54,20 @@ Configuracao fixa em `scripts/run_all.py`:
 - `RATIO=1`
 - `REPLACE=True`
 - `K_LIST=2,3,4,5,6`
-- embedding: `minirocket`
+- `EMBEDDING=minirocket`
 
-## Passos executados
+## Etapas executadas automaticamente
 
 1. `step0_build_outcomes_cohort.py`
 2. `step1_build_baseline_features.py`
 3. `step2_match_controls.py`
 4. `step3_embed_minirocket_temporal.py`
-5. `step4_reports.py --embedding minirocket --run_scan_suite`
+5. `step4_reports.py`
 
-## Nota para paper
+## Saídas
 
-Se voce ja versionou dados antes desta limpeza, remova o historico sensivel antes de publicar (por exemplo com `git filter-repo`) e gere um novo remoto publico.
+As saídas são geradas localmente em `outputs/runs/run_cal03_replace_full_w48/` e não são versionadas no repositório público.
+
+## Publicação
+
+Este repositório não inclui dados sensíveis de pacientes. Arquivos com identificadores (`stay_id`, `subject_id`) e artefatos de execução permanecem apenas no ambiente local.
