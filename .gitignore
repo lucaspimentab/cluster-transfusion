@@ -14,10 +14,12 @@ Thumbs.db
 *.tmp
 
 # Local datasets (sensitive/licensed)
+dataset/**/*.parquet
 dataset/timegrid_features/*
 !dataset/timegrid_features/.gitkeep
 dataset/outputs_outcomes/*
 !dataset/outputs_outcomes/.gitkeep
+dataset/outputs_outcomes/*.csv
 dataset/README_PUBLIC.md
 
 # Keep legacy dataset-builder code public, but not legacy clustering scripts.
