@@ -1,51 +1,74 @@
-# Cluster-Transfusion
+﻿# Cluster-Transfusion
 
-Projeto de estratificação de pacientes críticos com transfusão, usando matching por propensity score, embeddings temporais (MiniRocket) e descoberta de subgrupos clínicos.
+Repositório do estudo **Data-Driven Identification of Clinical Phenotypes and Outcomes After Red Blood Cell Transfusion in ICU Patients**.
 
-## Objetivo
+## Artigo
 
-Gerar uma análise reprodutível para o estudo de associação entre transfusão de concentrado de hemácias e desfechos clínicos em UTI, com foco em:
+**Autores:** Alicia Chaves, Leticia Ribeiro, Lucas Pimenta Braga, Luísa Barros Ribeiro Andrade, Paulo Henrique Cardoso, Samuel L.V. Miranda, Anisio Mendes Lacerda, Gisele L. Pappa, Alexandre Guimarães de Almeida Barros, Wagner Meira Jr.
 
-- coorte temporal padronizada por `stay_id`;
-- pareamento transfundidos vs. controles;
-- clusterização por representação temporal;
-- varredura de regras e subgrupos com diferença de mortalidade.
+**Afiliações:**
+- Department of Computer Science, Federal University of Minas Gerais (UFMG)
+- Department of Internal Medicine, INCT-NeuroTec-R, Federal University of Minas Gerais (UFMG)
 
-## Estrutura local esperada
+## Resumo do trabalho
+
+Este projeto investiga a heterogeneidade de resposta à transfusão de concentrado de hemácias em pacientes de UTI. A abordagem combina:
+
+- representação temporal com **MiniRocket**;
+- agrupamento com **K-means** para identificar fenótipos clínicos;
+- pareamento causal (**PSM**) para comparar transfundidos e controles em perfis clínicos semelhantes;
+- análise de subgrupos para identificar contextos de benefício e risco.
+
+## Estrutura do repositório
 
 ```text
-dataset/
-  timegrid_features/                # privado (não versionado)
-  outputs_outcomes/                 # privado (não versionado)
-    outcomes_by_stay_full.csv
 configs/
   lab_itemids.yaml
-outputs/                            # gerado localmente (não versionado)
-scripts/
+
+dataset/
+  _archive/                         # código de montagem do dataset a partir do MIMIC-IV
+  timegrid_features/                # dados locais privados (não versionados)
+  outputs_outcomes/                 # dados locais privados (não versionados)
+
+scripts/                            # pipeline final do artigo (MiniRocket + scan)
+outputs/                            # artefatos locais (não versionados)
 ```
 
-## Requisitos
+## Criação do dataset (MIMIC-IV)
 
-- Python 3.10+
-- duckdb
-- pandas
-- numpy
-- pyarrow
-- scikit-learn
+O código para montar o dataset está em:
+
+- `dataset/_archive/run_pipeline.py`
+- `dataset/_archive/src/`
+- `dataset/_archive/configs/`
+
+Configurar credenciais via variáveis de ambiente:
 
 ```bash
-pip install duckdb pandas numpy pyarrow scikit-learn
+MIMIC_DB_NAME
+MIMIC_DB_USER
+MIMIC_DB_PASSWORD
+MIMIC_DB_HOST
+MIMIC_DB_PORT
+MIMIC_DB_OPTIONS
 ```
 
-## Execução
+Execução:
 
-O fluxo é fechado e já está configurado com os valores usados no estudo.
+```bash
+cd dataset/_archive
+python run_pipeline.py
+```
+
+## Pipeline final do artigo (MiniRocket + scan)
+
+Execução única:
 
 ```bash
 python scripts/run_all.py
 ```
 
-Configuração fixa em `scripts/run_all.py`:
+Configuração fixa utilizada no estudo (`scripts/run_all.py`):
 
 - `RUN_ID=run_cal03_replace_full_w48`
 - `WINDOW=48`
@@ -55,8 +78,9 @@ Configuração fixa em `scripts/run_all.py`:
 - `REPLACE=True`
 - `K_LIST=2,3,4,5,6`
 - `EMBEDDING=minirocket`
+- `run_scan_suite=True`
 
-## Etapas executadas automaticamente
+Etapas executadas automaticamente:
 
 1. `step0_build_outcomes_cohort.py`
 2. `step1_build_baseline_features.py`
@@ -64,10 +88,9 @@ Configuração fixa em `scripts/run_all.py`:
 4. `step3_embed_minirocket_temporal.py`
 5. `step4_reports.py`
 
-## Saídas
+## Dados sensíveis
 
-As saídas são geradas localmente em `outputs/runs/run_cal03_replace_full_w48/` e não são versionadas no repositório público.
+Este repositório público **não** inclui dados de pacientes.
 
-## Publicação
-
-Este repositório não inclui dados sensíveis de pacientes. Arquivos com identificadores (`stay_id`, `subject_id`) e artefatos de execução permanecem apenas no ambiente local.
+- Arquivos `.parquet` e CSV sensíveis do dataset são mantidos localmente.
+- Artefatos de execução em `outputs/` também permanecem locais.

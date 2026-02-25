@@ -22,8 +22,8 @@ dataset/outputs_outcomes/*
 dataset/outputs_outcomes/*.csv
 dataset/README_PUBLIC.md
 
-# Keep legacy dataset-builder code public, but not legacy clustering scripts.
-dataset/_archive/legacy_pipeline/scripts/
+# Keep dataset-builder code public, but not optional legacy clustering scripts.
+dataset/_archive/scripts/
 
 # Pipeline outputs (can include IDs and local machine paths)
 outputs/*
