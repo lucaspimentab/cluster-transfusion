@@ -1,0 +1,182 @@
+labs:
+  hemoglobin:
+    itemids:
+    - 50855
+    - 51222
+    - 51640
+    label_regex:
+    - hemoglobin
+    - hgb
+
+  platelets:
+    itemids:
+    - 51265
+    label_regex:
+    - platelet
+
+  pt:
+    itemids:
+    - 51274
+    label_regex:
+    - prothrombin time
+    - "\bpt\b"
+
+  ptt:
+    itemids:
+    - 51275
+    label_regex:
+    - partial thromboplastin
+    - "\bptt\b"
+    - aPTT
+
+  lactate:
+    itemids:
+    - 50813
+    label_regex:
+    - lactate
+
+  glucose_lab:
+    itemids:
+    - 50931
+    label_regex:
+    - glucose
+
+  creatinine:
+    itemids:
+    - 50912
+    - 52546
+    label_regex:
+    - creatinine
+
+  urea:
+    itemids:
+    - 51006
+    label_regex:
+    - urea
+    - bun
+
+  magnesium:
+    itemids:
+    - 50960
+    label_regex:
+    - magnesium
+
+  phosphorus:
+    itemids:
+    - 50970
+    label_regex:
+    - phosphorus
+    - phosphate
+
+  potassium:
+    itemids:
+    - 50971
+    label_regex:
+    - potassium
+
+  sodium:
+    itemids:
+    - 50983
+    label_regex:
+    - sodium
+
+  alt:
+    itemids:
+    - 50861
+    label_regex:
+    - alt
+    - alanine aminotransferase
+
+  ast:
+    itemids:
+    - 50878
+    label_regex:
+    - ast
+    - aspartate aminotransferase
+
+  bilirubin_total:
+    itemids:
+    - 50885
+    label_regex:
+    - bilirubin, total
+    - total bilirubin
+
+  alkaline_phosphatase:
+    itemids:
+    - 50863
+    - 51241
+    - 53086
+    label_regex:
+    - alkaline phosphatase
+    - alk phos
+    - alkaline phosphatase, serum
+
+  ldh:
+    itemids:
+    - 50843
+    - 50954
+    - 51054
+    - 51795
+    - 51944
+    label_regex:
+    - lactate dehydrogenase
+    - ldh
+
+  lymphocytes_abs:
+    itemids:
+    - 51133
+    - 52057
+    - 52265
+    - 52302
+    - 52359
+    - 52384
+    - 52769
+    - 53132
+    label_regex:
+    - lymphocytes abs
+    - absolute lymphocytes
+    - absolute lymphocyte count
+    - lymphs abs
+    - lymphs#
+
+  ferritin:
+    itemids:
+    - 50924
+    label_regex:
+    - ferritin
+
+  crp:
+    itemids:
+    - 50889
+    label_regex:
+    - c-reactive protein
+    - "\bcrp\b"
+
+  ntprobnp:
+    itemids:
+    - 50963
+    label_regex:
+    - nt-probnp
+    - ntprobnp
+    - b-type natriuretic peptide
+    - pro-bnp
+
+  ggt:
+    itemids:
+    - 50927
+    - 53093
+    label_regex:
+    - gamma glutamyl
+    - ggt
+
+  ck_total:
+    itemids:
+    - 50910
+    - 50911
+    - 51594
+    - 51595
+    - 51596
+    label_regex:
+    - creatine kinase
+    - ck total
+    - ck, total

@@ -14,13 +14,14 @@ Thumbs.db
 *.tmp
 
 # Local datasets (sensitive/licensed)
-dataset/*
-!dataset/timegrid_features/
-!dataset/outputs_outcomes/
 dataset/timegrid_features/*
 !dataset/timegrid_features/.gitkeep
 dataset/outputs_outcomes/*
 !dataset/outputs_outcomes/.gitkeep
+dataset/README_PUBLIC.md
+
+# Keep legacy dataset-builder code public, but not legacy clustering scripts.
+dataset/_archive/legacy_pipeline/scripts/
 
 # Pipeline outputs (can include IDs and local machine paths)
 outputs/*

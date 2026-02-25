@@ -1,0 +1,87 @@
+# Default values for initial fill before forward-fill.
+# Use null to keep missing when no prior value exists.
+defaults:
+  age: null
+  gender: "unknown"
+  weight_kg: null
+  height_cm: null
+  bmi: null
+  heart_rate: 70
+  sbp: 120
+  dbp: 80
+  mbp: 93
+  resp_rate: 16
+  temperature: 37.0
+  spo2: 98
+  glucose_vital: 90
+
+  hemoglobin: 14.0
+  platelets: 250
+  pt: 12.2
+  ptt: 30
+  lactate: 1.2
+  glucose_lab: 90
+  creatinine: 0.9
+  urea: 15
+  magnesium: 2.0
+  phosphorus: 3.5
+  potassium: 4.0
+  sodium: 140
+  alt: 25
+  ast: 20
+  bilirubin_total: 0.7
+  alkaline_phosphatase: 75
+  ggt: null
+  ldh: 180
+  lymphocytes_abs: 2.0
+  crp: null
+  ferritin: null
+  ntprobnp: null
+  ck_total: 100
+
+  norepinephrine_rate_mcgkgmin: 0
+  epinephrine_rate_mcgkgmin: 0
+  dopamine_rate_mcgkgmin: 0
+  dobutamine_rate_mcgkgmin: 0
+  vasopressin_rate_unitsmin_or_equiv: 0
+  vasopressin_rate_raw: 0
+  vasopressin_rate_norm: 0
+  phenylephrine_rate_mcgkgmin: 0
+  milrinone_rate_mcgkgmin: 0
+  any_vasopressor: 0
+  nee_mcgkgmin: 0
+  ventilation_on: 0
+  imv_on: 0
+  tracheostomy_flag: 0
+  rrt_on: 0
+  rrt_type: "unknown"
+
+  rbc_transfusion_flag: 0
+  rbc_amount_ml_event: 0
+  rbc_totalamount_ml_icu: 0
+
+  sofa: null
+  sofa_delta: null
+  sapsii: null
+  apsiii: null
+
+  urineoutput_24h_ml: null
+  fluid_balance_daily_ml: null
+  fluid_balance_total_ml: null
+
+  myocardial_infarct: 0
+  congestive_heart_failure: 0
+  peripheral_vascular_disease: 0
+  cerebrovascular_disease: 0
+  dementia: 0
+  chronic_pulmonary_disease: 0
+  rheumatic_disease: 0
+  peptic_ulcer_disease: 0
+  mild_liver_disease: 0
+  diabetes_without_cc: 0
+  diabetes_with_cc: 0
+  renal_disease: 0
+  malignant_cancer: 0
+  severe_liver_disease: 0
+  metastatic_solid_tumor: 0
+  aids: 0
