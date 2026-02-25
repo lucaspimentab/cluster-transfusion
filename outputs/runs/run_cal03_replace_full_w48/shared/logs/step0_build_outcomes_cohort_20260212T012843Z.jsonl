@@ -1,6 +1,0 @@
-{"ts": "2026-02-12T01:28:43.033301+00:00", "event": "logger_ready", "run_name": "step0_build_outcomes_cohort", "log_path": "C:\\Users\\lucas\\OneDrive\\Documentos\\Programas\\cluster-transfusion\\cluster-transfusion1\\outputs\\runs\\run_cal03_replace_full_w48\\shared\\logs\\step0_build_outcomes_cohort_20260212T012843Z.jsonl"}
-{"ts": "2026-02-12T01:28:43.092939+00:00", "event": "profiling_enabled", "path": "C:\\Users\\lucas\\OneDrive\\Documentos\\Programas\\cluster-transfusion\\cluster-transfusion1\\outputs\\runs\\run_cal03_replace_full_w48\\shared\\profiling\\step0_build_outcomes_cohort.json"}
-{"ts": "2026-02-12T01:28:43.868139+00:00", "event": "schema_inferred", "stay_col": "stay_id", "time_col": "tbin", "transfusion_cols": ["rbc_transfusion_flag"], "outcomes_stay_col": "stay_id"}
-{"ts": "2026-02-12T01:28:43.868139+00:00", "event": "build_outcomes_cohort_start"}
-{"ts": "2026-02-12T01:28:49.227331+00:00", "event": "build_outcomes_cohort_end", "elapsed_seconds": 5.3595343}
-{"ts": "2026-02-12T01:28:49.316507+00:00", "event": "outcomes_cohort_written", "path": "C:\\Users\\lucas\\OneDrive\\Documentos\\Programas\\cluster-transfusion\\cluster-transfusion1\\outputs\\runs\\run_cal03_replace_full_w48\\shared\\outcomes_cohort.parquet", "n_rows": 40167, "n_transfused": 10639, "n_controls": 29528}

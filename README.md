@@ -1,20 +1,29 @@
-﻿# Cluster-Transfusion (MiniRocket)
+# Cluster-Transfusion (MiniRocket)
 
-Pipeline limpo para reproduzir os resultados finais com **MiniRocket** (janela 48h).
+Pipeline para reproduzir a analise final com **MiniRocket** (janela de 48h) usando dados clinicos locais.
 
-## Estrutura esperada
+## Publicacao segura
+
+Este repositorio foi preparado para publicacao publica sem incluir dados sensiveis.
+
+- Nao versiona dados de pacientes nem artefatos de execucao.
+- Arquivos com identificadores (`stay_id`, `subject_id`) ficam somente no ambiente local.
+- Logs com caminhos locais da maquina tambem ficam fora do Git.
+
+## Estrutura esperada (local)
 
 ```text
 dataset/
-  timegrid_features/
-  outputs_outcomes/
+  timegrid_features/                # privado (nao versionado)
+  outputs_outcomes/                 # privado (nao versionado)
     outcomes_by_stay_full.csv
 configs/
   lab_itemids.yaml
-outputs/
+outputs/                            # gerado localmente (nao versionado)
+scripts/
 ```
 
-## Dependências
+## Dependencias
 
 - Python 3.10+
 - duckdb
@@ -27,15 +36,13 @@ outputs/
 pip install duckdb pandas numpy pyarrow scikit-learn
 ```
 
-## Pipeline final (sem argumentos)
-
-Comando único para reproduzir o fluxo atual:
+## Execucao do pipeline
 
 ```bash
 python scripts/run_all.py
 ```
 
-Configuração fixa no `scripts/run_all.py`:
+Configuracao fixa em `scripts/run_all.py`:
 - `RUN_ID=run_cal03_replace_full_w48`
 - `WINDOW=48`
 - `SEED=42`
@@ -53,19 +60,6 @@ Configuração fixa no `scripts/run_all.py`:
 4. `step3_embed_minirocket_temporal.py`
 5. `step4_reports.py --embedding minirocket --run_scan_suite`
 
-## Resultado final principal
+## Nota para paper
 
-Arquivo final para discussão clínica:
-
-`outputs/runs/run_cal03_replace_full_w48/w48/reports/relatorio_scan_auto_discovery_formalizado.txt`
-
-## Artefatos principais gerados
-
-- `outputs/runs/run_cal03_replace_full_w48/w48/reports/cluster_metrics_minirocket.csv`
-- `outputs/runs/run_cal03_replace_full_w48/w48/reports/cluster_assignments_mortality_minirocket.csv`
-- `outputs/runs/run_cal03_replace_full_w48/w48/reports/auto_discovery_rules_all.csv`
-- `outputs/runs/run_cal03_replace_full_w48/w48/reports/auto_discovery_rules_strong.csv`
-- `outputs/runs/run_cal03_replace_full_w48/w48/reports/relatorio_scan_auto_discovery_formalizado.txt`
-- `outputs/runs/run_cal03_replace_full_w48/w48/reports/cluster_k_quality_minirocket.csv`
-- `outputs/runs/run_cal03_replace_full_w48/w48/reports/scan_cluster_cross_k2_k3_sign.csv`
-- `outputs/runs/run_cal03_replace_full_w48/w48/reports/scan_cluster_cross_k2_k3_groups.csv`
+Se voce ja versionou dados antes desta limpeza, remova o historico sensivel antes de publicar (por exemplo com `git filter-repo`) e gere um novo remoto publico.

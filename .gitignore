@@ -1,5 +1,30 @@
 __pycache__/
-*.pyc
+*.py[cod]
+*.pyo
 .venv/
+
+.env
+.env.*
+!.env.example
+
+.DS_Store
+Thumbs.db
+
 *.log
-dataset/timegrid_features/
+*.tmp
+
+# Local datasets (sensitive/licensed)
+dataset/*
+!dataset/timegrid_features/
+!dataset/outputs_outcomes/
+dataset/timegrid_features/*
+!dataset/timegrid_features/.gitkeep
+dataset/outputs_outcomes/*
+!dataset/outputs_outcomes/.gitkeep
+
+# Pipeline outputs (can include IDs and local machine paths)
+outputs/*
+!outputs/.gitkeep
+
+*.duckdb
+*.h5
