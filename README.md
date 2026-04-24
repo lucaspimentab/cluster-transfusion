@@ -1,14 +1,14 @@
 ﻿# Cluster-Transfusion
 
-Repositório do estudo **Data-Driven Identification of Clinical Phenotypes and Outcomes After Red Blood Cell Transfusion in ICU Patients**.
+Repositório do estudo **Identificação de Fenótipos Clínicos e Desfechos da Transfusão de Hemácias em UTI Baseada em Trajetórias Fisiológicas**.
 
 ## Artigo
 
-**Autores:** Alicia Chaves, Leticia Ribeiro, Lucas Pimenta Braga, Luísa Barros Ribeiro Andrade, Paulo Henrique Cardoso, Samuel L.V. Miranda, Anisio Mendes Lacerda, Gisele L. Pappa, Alexandre Guimarães de Almeida Barros, Wagner Meira Jr.
+**Autores:** Lucas Pimenta Braga, Luísa Barros Ribeiro Andrade, Paulo Henrique Cardoso, Alicia Chaves, Leticia Ribeiro, Samuel L.V. Miranda, Anisio Mendes Lacerda, Alexandre Guimarães de Almeida Barros, Wagner Meira Jr, Gisele L. Pappa.
 
 **Afiliações:**
-- Department of Computer Science, Federal University of Minas Gerais (UFMG)
-- Department of Internal Medicine, INCT-NeuroTec-R, Federal University of Minas Gerais (UFMG)
+- Departamento de Ciência da Computação, Universidade Federal de Minas Gerais (UFMG)
+- Departamento de Clínica Médica, INCT-NeuroTec-R, Universidade Federal de Minas Gerais (UFMG)
 
 ## Resumo do trabalho
 
